@@ -11,17 +11,39 @@ namespace JohdantoPart2
         static void Main(string[] args)
         {
 
-            int[] array1 = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
-            int[] array2 = { 5, 15, 25, 35, 45, 55, 65, 75, 85, 95 };
-            int[] array3 = array1.Concat(array2).ToArray();
 
-            Array.Sort(array3);
-            Console.WriteLine("Numbers in the arrays: ");
-            for (int i = 0; i < array3.Length; i++)
+            int[] credits = new int[6];
+            int number;
+            bool result;
+
+
+            Console.WriteLine("Give credits between 0 to 5. ");
+            do
             {
-                Console.WriteLine(array3[i]);
-            }
+                Console.WriteLine("Give credit: ");
+                string line = Console.ReadLine();
+                result = Int32.TryParse(line, out number);
 
+                switch (number)
+                {
+                    case 0: credits[0]++; break;
+                    case 1: credits[1]++; break;
+                    case 2: credits[2]++; break;
+                    case 3: credits[3]++; break;
+                    case 4: credits[4]++; break;
+                    case 5: credits[5]++; break;
+                }
+
+            } while (result);
+
+            Console.WriteLine("Credits: ");
+            for (int i = 0; i < credits.Length; i++)
+            {
+                Console.Write(i + " : ");
+                for (int k = 0; k < credits[i]; k++)
+                    Console.Write("*");
+                Console.WriteLine();
+            }
 
 
             Console.ReadLine();
