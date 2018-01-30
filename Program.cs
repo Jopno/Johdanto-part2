@@ -21,9 +21,10 @@ namespace ArrayApplication
                 Console.WriteLine(array3[i]);
             }
 
-
+            
 
             Console.ReadLine();
         }
     }
 }
+//bla
