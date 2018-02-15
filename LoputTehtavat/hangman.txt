@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp38
+{
+  
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string rightWord = " HANGMAN ";
+            StringBuilder guessedWord = new StringBuilder(" ");
+            StringBuilder guessedLetters = new StringBuilder("");
+            int hangMax = 10;
+            int guesses = 0;
+
+            do
+            {
+                //ask a new letter
+
+                Console.WriteLine("Give a new letter: ");
+                string line = Console.ReadLine().ToUpper();
+                if (line.Length == 0)
+                {
+                    Console.WriteLine("You didn't type anything (Game is over)!");
+                    return;
+                }
+                guesses++;
+
+                //How to check letter in rightword
+
+                for (int i = 0; i < rightWord.Length; i++)
+                {
+                    if (rightWord == line)
+                    {
+                        guessedWord[i] = line[0];
+                    }
+                }
+
+                //store guessed Letter
+                guessedLetters.Append(line[0]);
+                Console.WriteLine("Guessed word: {0}", guessedWord.ToString());
+                Console.WriteLine("Guesses made: {0} and left {1} ", guesses, hangMax - guesses);
+                Console.WriteLine("Guessed letters: {0} ", guessedLetters.ToString());
+
+            } while (guesses < hangMax && !rightWord.Equals(guessedWord.ToString()));
+            if (" guessedWord " == " rightWord ") 
+            {
+                Console.WriteLine(" Excellent - you survived! ");
+            }
+            else
+                Console.WriteLine("You gotta hang now! ");
+
+
+            Console.ReadLine();
+        }
+    }
+}
