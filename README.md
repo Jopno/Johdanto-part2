@@ -1,1 +1,1 @@
-# Johdanto-part2
+Kansio sisältää loput tekemättömät tehtävät
